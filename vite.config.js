@@ -16,7 +16,6 @@ export default defineConfig({
         drop_debugger: true
       }
     },
-    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
         manualChunks: {
