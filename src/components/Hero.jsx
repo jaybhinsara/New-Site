@@ -31,7 +31,7 @@ export function Hero() {
       >
         <motion.div className="hero__copy" variants={containerVariants} initial="hidden" animate="visible">
           <motion.p className="eyebrow" variants={itemVariants}>
-            Junior Software Engineer · Munich
+            Software Engineer · Munich
           </motion.p>
           <motion.h1 variants={itemVariants}>
             Building bold, reliable web experiences with React, JavaScript, and thoughtful UX.

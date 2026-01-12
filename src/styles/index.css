@@ -970,6 +970,11 @@ nav {
     height: 320px;
   }
 
+  .project-card::before,
+  .project-card::after {
+    filter: blur(15px);
+  }
+
   .project-card__content {
     padding: 28px 32px;
   }
