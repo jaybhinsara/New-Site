@@ -8,6 +8,7 @@ import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Sparkles } from './components/Sparkles';
 import { ThemeToggle } from './components/ThemeToggle';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -49,6 +50,7 @@ export default function App() {
       <Education />
       <Skills />
       <Contact />
+      <SpeedInsights />
 
       <motion.footer
         className="shell footer"
