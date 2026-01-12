@@ -1,0 +1,400 @@
+/* Theme Toggle Bulb Switch */
+:root {
+  --ts-speed: 0.7s;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+}
+
+.switch input {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.switch label {
+  height: 38px;
+  width: 60px;
+  background-color: rgba(242, 193, 79, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  box-shadow: 
+    inset 0 0 10px rgba(242, 193, 79, 0.05),
+    inset 0 0 2px -1px rgba(242, 193, 79, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bulb {
+  height: 32px;
+  width: 32px;
+  background-color: rgba(46, 212, 166, 0.08);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+  box-shadow:
+    inset 0 0 1px 2px rgba(46, 212, 166, 0.1),
+    inset 0 0 4px 6px rgba(46, 212, 166, 0.05),
+    0 10px 15px -5px rgba(0, 0, 0, 0.2);
+}
+
+.bulb-center {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(242, 193, 79, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 0 2px rgba(242, 193, 79, 0.2);
+}
+
+.bulb-center::after {
+  content: '';
+  display: block;
+  height: 8px;
+  width: 8px;
+  background-color: #f2c14f;
+  border-radius: 50%;
+  position: absolute;
+  transition: var(--ts-speed);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 2px 2px #2ed4a6;
+}
+
+.filament-1,
+.filament-2 {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.filament-1::after,
+.filament-1::before,
+.filament-2::after,
+.filament-2::before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(242, 193, 79, 0.3);
+  position: absolute;
+  transition: var(--ts-speed);
+  top: -2px;
+  left: -1px;
+  transform: rotate(-10deg);
+}
+
+.filament-1::before,
+.filament-2::before {
+  left: 15px;
+  transform: rotate(10deg);
+}
+
+.filament-2 {
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+.reflections {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 90;
+  perspective: 70px;
+}
+
+.reflections span {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: linear-gradient(-135deg, transparent 10%, rgba(255, 255, 255, 0.3));
+  position: absolute;
+  left: -40px;
+  bottom: -45px;
+}
+
+.reflections span::after {
+  content: '';
+  display: block;
+  height: 35px;
+  width: 20px;
+  position: absolute;
+  top: -36px;
+  right: -40px;
+  border-radius: 50%;
+  box-shadow: 4px -2px 0 -3px rgba(255, 255, 255, 0.4);
+  filter: blur(1px);
+  transform: rotate(-10deg);
+}
+
+.reflections::after {
+  content: '';
+  display: block;
+  height: 80px;
+  width: 50px;
+  background-image: linear-gradient(80deg, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.5));
+  border-radius: 10% 20% 50% 30% / 30% 60% 30% 40%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotate(-35deg) skewX(-15deg) translate(10px, -20px);
+  top: -8px;
+  left: -5px;
+}
+
+.reflections::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 30px;
+  background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15));
+  bottom: 10px;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.spark1,
+.spark2,
+.spark3,
+.spark4 {
+  display: block;
+  background-color: #d1b82b;
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.spark1 {
+  height: 1px;
+  width: 1px;
+  right: -5px;
+  bottom: 23px;
+}
+
+.spark2,
+.spark3,
+.spark4 {
+  height: 3px;
+  width: 3px;
+}
+
+.spark2 {
+  right: 20px;
+  bottom: 80px;
+}
+
+.spark3 {
+  left: 20px;
+  bottom: 80px;
+}
+
+.spark4 {
+  left: 20px;
+  bottom: 20px;
+}
+
+/* Checked/Light Mode States */
+.switch input:checked ~ label .bulb {
+  margin-left: auto;
+  background-color: rgba(242, 176, 69, 0.15);
+  box-shadow:
+    inset 0 0 1px 2px rgba(242, 176, 69, 0.2),
+    inset 0 0 4px 6px rgba(242, 176, 69, 0.08),
+    0 10px 15px -5px rgba(0, 0, 0, 0.2),
+    0 0 15px 20px rgba(242, 176, 69, 0.06);
+}
+
+.switch input:checked ~ label .bulb > .bulb-center {
+  background-color: rgba(242, 193, 79, 0.5);
+  box-shadow: 
+    inset 0 0 0 2px rgba(242, 193, 79, 0.4),
+    0 0 8px 6px rgba(242, 193, 79, 0.3),
+    0 0 12px 8px rgba(46, 212, 166, 0.2);
+}
+
+.switch input:checked ~ label .bulb > .bulb-center::after {
+  background-color: #f2c14f;
+  box-shadow: 0 0 6px 4px #f2c14f, 0 0 12px 6px #2ed4a6;
+}
+
+.switch input:checked ~ label .bulb > .filament-1::before,
+.switch input:checked ~ label .bulb > .filament-1::after,
+.switch input:checked ~ label .bulb > .filament-2::before,
+.switch input:checked ~ label .bulb > .filament-2::after {
+  border-color: #f2c14f;
+}
+
+/* Spark Animations */
+.switch input:checked ~ label .bulb > .sparks .spark1 {
+  height: 1px;
+  width: 1px;
+  animation: spark1 2s ease-in-out;
+  animation-delay: 0.4s;
+}
+
+.switch input:checked ~ label .bulb > .sparks .spark2 {
+  height: 1px;
+  width: 1px;
+  animation: spark2 2.4s ease-in-out;
+  animation-delay: 0.4s;
+}
+
+.switch input:checked ~ label .bulb > .sparks .spark3 {
+  height: 1px;
+  width: 1px;
+  animation: spark3 2s ease-in-out;
+  animation-delay: 0.9s;
+}
+
+.switch input:checked ~ label .bulb > .sparks .spark4 {
+  height: 1px;
+  width: 1px;
+  animation: spark4 1.7s ease-in-out;
+  animation-delay: 0.9s;
+}
+
+@keyframes spark1 {
+  0% {
+    right: -5px;
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+  }
+  20% {
+    height: 3px;
+    width: 3px;
+    right: 0;
+    opacity: 1;
+  }
+  30% {
+    right: -5px;
+    opacity: 1;
+    height: 3px;
+    width: 3px;
+  }
+  70% {
+    height: 3px;
+    width: 3px;
+  }
+  100% {
+    right: -60px;
+    bottom: 40px;
+    opacity: 0;
+  }
+}
+
+@keyframes spark2 {
+  0% {
+    height: 3px;
+    width: 3px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    right: -20px;
+    bottom: 100px;
+    opacity: 0;
+  }
+}
+
+@keyframes spark3 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    height: 2px;
+    width: 2px;
+  }
+  100% {
+    left: 0;
+    bottom: 100px;
+    opacity: 0;
+    height: 3px;
+    width: 3px;
+  }
+}
+
+@keyframes spark4 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    height: 2px;
+    width: 2px;
+  }
+  100% {
+    left: -20px;
+    bottom: -10px;
+    opacity: 0;
+    height: 3px;
+    width: 3px;
+  }
+}
+
+/* Light theme overrides */
+:root.light .switch label {
+  background-color: rgba(242, 176, 69, 0.08);
+  border-color: rgba(242, 176, 69, 0.15);
+  box-shadow: 
+    inset 0 0 10px rgba(242, 176, 69, 0.04),
+    inset 0 0 2px -1px rgba(242, 176, 69, 0.08);
+}
+
+:root.light .bulb {
+  background-color: rgba(46, 212, 166, 0.08);
+  box-shadow:
+    inset 0 0 1px 2px rgba(46, 212, 166, 0.1),
+    inset 0 0 4px 6px rgba(46, 212, 166, 0.05),
+    0 10px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+:root.light .bulb-center {
+  background-color: rgba(242, 176, 69, 0.2);
+  box-shadow: inset 0 0 0 2px rgba(242, 176, 69, 0.15);
+}
+
+:root.light .bulb-center::after {
+  background-color: #f2b045;
+  box-shadow: 0 0 2px 2px #2abf9b;
+}
+
+:root.light .filament-1::after,
+:root.light .filament-1::before,
+:root.light .filament-2::after,
+:root.light .filament-2::before {
+  border-color: rgba(242, 176, 69, 0.2);
+}
+

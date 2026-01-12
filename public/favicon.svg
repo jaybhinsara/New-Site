@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="256" height="256" rx="64" fill="#0f1115"/>
+  
+  <!-- Gradient accent circle -->
+  <circle cx="128" cy="128" r="100" fill="none" stroke="url(#grad1)" stroke-width="3" opacity="0.3"/>
+  
+  <!-- Main letter J -->
+  <text x="128" y="160" font-family="Clash Display, sans-serif" font-size="120" font-weight="700" fill="#f2c14f" text-anchor="middle" letter-spacing="-2">J</text>
+  
+  <!-- Accent dot -->
+  <circle cx="145" cy="90" r="8" fill="#2ed4a6"/>
+  
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f2c14f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ed4a6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
