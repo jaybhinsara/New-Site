@@ -45,12 +45,15 @@ export default function App() {
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       </motion.nav>
 
-      <Hero />
-      <Projects />
-      <Experience />
-      <Education />
-      <Skills />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <Experience />
+        <Education />
+        <Skills />
+        <Contact />
+      </main>
+
       <Suspense fallback={null}>
         <SpeedInsights />
       </Suspense>
