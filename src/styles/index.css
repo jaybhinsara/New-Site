@@ -571,7 +571,7 @@ nav {
   color: var(--text);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
 }
 
@@ -624,6 +624,88 @@ nav {
   left: 0;
   color: var(--accent);
   font-weight: bold;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background: var(--accent);
+  color: var(--panel-strong);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: auto;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+}
+
+.project-card__link:hover,
+.project-card__link:focus {
+  background: var(--accent-2);
+  transform: scale(1.1);
+  outline: none;
+}
+
+.project-card__link:active {
+  transform: scale(0.95);
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+}
+
+.project-card__string {
+  position: absolute;
+  top: -30px;
+  right: 12px;
+  width: 2px;
+  height: 40px;
+  background: var(--muted);
+  opacity: 0.8;
+  transform-origin: top center;
+  z-index: 14;
+}
+
+.project-card__tag {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 52px;
+  height: 52px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  z-index: 15;
+  color: var(--panel-strong);
+  border: 3px solid var(--panel);
+  animation: swing 2.5s ease-in-out infinite;
+  transform-origin: top center;
+  transition: background 0.3s ease;
+}
+
+.project-card__tag:hover {
+  background: var(--accent-2);
+  animation: none;
+  transform: scale(1.2);
 }
 
 :root.light .project-card__content {
@@ -1063,6 +1145,22 @@ nav {
 
   .project-card:hover {
     animation: jelly 0.6s ease-in-out;
+  }
+
+  .project-card__tag {
+    animation: swing 2.5s ease-in-out infinite;
+  }
+
+  .project-card__tag:hover {
+    background: var(--accent-2);
+    animation: none;
+    transform: scale(1.2);
+  }
+
+  .project-card__tag:active {
+    background: var(--accent-2);
+    animation: none;
+    transform: scale(1.2);
   }
 
   .card__header {

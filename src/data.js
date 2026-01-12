@@ -6,6 +6,7 @@ export const data = {
       category: ['frontend'],
       image: '/jay-portfolio-img.png',
       gradient: 'linear-gradient(135deg, #f2c14f, #2ed4a6)',
+      github: 'https://github.com/jaybhinsara/New-Site.git',
       body: 'Modern, performance-optimized portfolio with smooth animations, dark/light themes, and accessibility features.',
       bullets: [
         'Achieved 90+ PageSpeed score with lazy loading, code splitting, and critical CSS inlining.',
@@ -19,6 +20,7 @@ export const data = {
       category: ['frontend', 'data'],
       image: '/dashboard-img.png',
       gradient: 'linear-gradient(135deg, #03a9f4, #2ed4a6)',
+      github: 'https://github.com/jaybhinsara/Crypto_dashboard.git',
       body: 'Real-time dashboard with live market data, price trends, and responsive layout.',
       bullets: [
         'Integrated external APIs for live prices and trends.',
@@ -31,6 +33,7 @@ export const data = {
       tech: 'HTML · CSS · JavaScript',
       category: ['frontend'],
       gradient: 'linear-gradient(135deg, #f2c14f, #03a9f4)',
+      github: 'https://github.com/jaybhinsara/insta_clone.git',
       body: 'UI-focused clone capturing feed, cards, and responsive behaviors to mirror production UI.',
       bullets: [
         'Replicated feed layouts and media cards.',
@@ -44,6 +47,7 @@ export const data = {
       category: ['frontend'],
       image: '/unit-converter.png',
       gradient: 'linear-gradient(135deg, #2ed4a6, #03a9f4)',
+      github: 'https://github.com/jaybhinsara/Passwor-Generator.git',
       body: 'Customizable password creator with selectable rules and instant feedback.',
       bullets: [
         'Random generation logic with user controls.',
