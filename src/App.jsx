@@ -8,7 +8,7 @@ import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Sparkles } from './components/Sparkles';
 import { ThemeToggle } from './components/ThemeToggle';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
