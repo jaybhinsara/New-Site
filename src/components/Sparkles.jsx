@@ -14,14 +14,14 @@ export function Sparkles() {
       const opacity = 0.3 + Math.random() * 0.5;
 
       const particle = { id, x, duration, delay, size, opacity };
-      setParticles((prev) => [...prev, particle]);
+      setParticles((prev) => [...prev.slice(-20), particle]); // Limit to 20 particles max
 
       setTimeout(() => {
         setParticles((prev) => prev.filter((p) => p.id !== id));
       }, (duration + delay) * 1000);
     };
 
-    const interval = setInterval(generateParticle, 300);
+    const interval = setInterval(generateParticle, 500); // Reduced frequency from 300ms to 500ms
     return () => clearInterval(interval);
   }, []);
 

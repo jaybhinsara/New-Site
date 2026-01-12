@@ -121,11 +121,14 @@ nav {
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
 }
 
 .nav a:hover,
 .nav a.active {
   color: var(--accent);
+  background: rgba(242, 193, 79, 0.1);
 }
 
 .hero {
@@ -514,36 +517,25 @@ nav {
 
 @media (max-width: 900px) {
   .nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px 16px;
-    top: 12px;
-    justify-content: space-between;
-    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
   }
 
   .brand {
-    font-size: 1.65rem;
-    flex-shrink: 0;
-    font-weight: 700;
+    font-size: 0.95rem;
   }
 
   nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 8px;
   }
 
   .nav a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 
   .switch {
-    order: 2;
-    flex-shrink: 0;
+    transform: scale(0.9);
   }
 
   .hero {

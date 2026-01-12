@@ -27,6 +27,30 @@
     <meta name="twitter:image" content="/og-image.png" />
     
     <title>Jay Bhinsara · Portfolio</title>
+    <style>
+      /* Critical CSS - Inline for faster FCP */
+      :root {
+        --bg: #0f1115;
+        --text: #e6e8ef;
+        --accent: #f2c14f;
+      }
+      :root.light {
+        --bg: #f7f8fb;
+        --text: #0b0f14;
+        --accent: #f2b045;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
+      body {
+        font-family: 'Space Grotesk', 'Clash Display', 'Segoe UI', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        letter-spacing: -0.01em;
+      }
+      .shell { width: min(1200px, 100%); margin: 0 auto; padding: 32px 16px; max-width: 100%; }
+      .nav { position: sticky; top: 16px; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
