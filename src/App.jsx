@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
@@ -8,7 +8,8 @@ import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Sparkles } from './components/Sparkles';
 import { ThemeToggle } from './components/ThemeToggle';
-import { SpeedInsights } from "@vercel/speed-insights/react"
+
+const SpeedInsights = lazy(() => import("@vercel/speed-insights/react").then(mod => ({ default: mod.SpeedInsights })))
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -50,7 +51,9 @@ export default function App() {
       <Education />
       <Skills />
       <Contact />
-      <SpeedInsights />
+      <Suspense fallback={null}>
+        <SpeedInsights />
+      </Suspense>
 
       <motion.footer
         className="shell footer"
