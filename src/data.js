@@ -1,9 +1,24 @@
 export const data = {
   projects: [
     {
+      title: 'Personal Portfolio Website',
+      tech: 'React · Vite · Framer Motion · CSS3',
+      category: ['frontend'],
+      image: '/jay-portfolio-img.png',
+      gradient: 'linear-gradient(135deg, #f2c14f, #2ed4a6)',
+      body: 'Modern, performance-optimized portfolio with smooth animations, dark/light themes, and accessibility features.',
+      bullets: [
+        'Achieved 90+ PageSpeed score with lazy loading, code splitting, and critical CSS inlining.',
+        'Built responsive design with mobile-first approach and fluid animations using Framer Motion.',
+        'Implemented theme toggle with localStorage persistence and WCAG-compliant accessibility.'
+      ]
+    },
+    {
       title: 'Crypto Dashboard Application',
       tech: 'HTML · CSS · JavaScript · Public APIs',
       category: ['frontend', 'data'],
+      image: '/dashboard-img.png',
+      gradient: 'linear-gradient(135deg, #03a9f4, #2ed4a6)',
       body: 'Real-time dashboard with live market data, price trends, and responsive layout.',
       bullets: [
         'Integrated external APIs for live prices and trends.',
@@ -15,6 +30,7 @@ export const data = {
       title: 'Instagram Clone (Frontend)',
       tech: 'HTML · CSS · JavaScript',
       category: ['frontend'],
+      gradient: 'linear-gradient(135deg, #f2c14f, #03a9f4)',
       body: 'UI-focused clone capturing feed, cards, and responsive behaviors to mirror production UI.',
       bullets: [
         'Replicated feed layouts and media cards.',
@@ -26,6 +42,8 @@ export const data = {
       title: 'Password Generator',
       tech: 'HTML · CSS · JavaScript',
       category: ['frontend'],
+      image: '/unit-converter.png',
+      gradient: 'linear-gradient(135deg, #2ed4a6, #03a9f4)',
       body: 'Customizable password creator with selectable rules and instant feedback.',
       bullets: [
         'Random generation logic with user controls.',

@@ -14,15 +14,23 @@ export function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+  };
+
+  const jellyVariants = {
+    rest: { scale: 1 },
+    bounce: {
+      scale: [1, 1.05, 0.95, 1.02, 1],
+      transition: { duration: 0.6, ease: 'easeInOut' },
+    },
   };
 
   return (
@@ -59,7 +67,7 @@ export function Projects() {
       </motion.div>
 
       <motion.div
-        className="grid projects"
+        className="projects-grid"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -67,23 +75,40 @@ export function Projects() {
       >
         <AnimatePresence mode="wait">
           {filtered.map((p, i) => (
-            <motion.article
+            <motion.div
               key={p.title}
-              className="card"
-              variants={itemVariants}
-              layoutId={p.title}
+              className="project-card"
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: [1, 1.05, 0.95, 1.02, 1],
+                transition: { 
+                  duration: 0.8,
+                  ease: 'easeInOut'
+                }
+              }}
+              exit={{ opacity: 0, y: -20, transition: { duration: 0.3 } }}
+              viewport={{ once: false, amount: 'some', margin: '-50px' }}
+              style={{
+                '--gradient': p.gradient
+              }}
             >
-              <div className="card__header">
-                <p className="label">{p.title}</p>
-                <span className="tag">{p.tech}</span>
+              <span className="project-card__bg"></span>
+
+              <div className="project-card__content">
+                <div className="project-card__header">
+                  <h3>{p.title}</h3>
+                  <span className="tag">{p.tech}</span>
+                </div>
+                <p className="project-card__body">{p.body}</p>
+                <ul className="project-card__bullets">
+                  {p.bullets.map((b, idx) => (
+                    <li key={idx}>{b}</li>
+                  ))}
+                </ul>
               </div>
-              <p className="card__body">{p.body}</p>
-              <ul>
-                {p.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </motion.article>
+            </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
