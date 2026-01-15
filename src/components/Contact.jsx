@@ -54,7 +54,7 @@ export function Contact() {
         <div className="panel">
           <div className="panel__top">
             <span>Availability</span>
-            <strong>Accepting new work</strong>
+            <strong>Accepting new<br />work</strong>
           </div>
           <p className="panel__body">
             Frontends, dashboards, and integrations with a bias toward clean execution and measurable uptime.

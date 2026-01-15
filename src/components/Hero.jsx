@@ -70,7 +70,7 @@ export function Hero() {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.6 }}
               >
-                3
+                4
               </motion.strong>
             </div>
             <p className="panel__body">
