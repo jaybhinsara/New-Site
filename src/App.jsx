@@ -65,7 +65,7 @@ export default function App() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p>© Jay Bhinsara · Built with React & Framer Motion.</p>
+        <p>© Jay Bhinsara · Built with React.</p>
       </motion.footer>
     </>
   );
