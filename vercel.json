@@ -1,7 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "react",
   "devCommand": "npm run dev",
   "regions": ["gru1", "syd1", "sin1", "iad1"],
   "env": {
