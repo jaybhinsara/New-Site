@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 export function Hero() {
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,11 +48,7 @@ export function Hero() {
           <motion.div className="hero__meta" variants={itemVariants}>
             <div>
               <span className="label">Primary stack</span>
-              <span className="value">React · JavaScript · HTML · CSS · MySQL · Spring Boot · CLI</span>
-            </div>
-            <div>
-              <span className="label">Languages</span>
-              <span className="value">English (C2) · German (A1)</span>
+              <span className="value">React · JavaScript · HTML · CSS · MySQL · Spring Boot · CLI · Express.js</span>
             </div>
           </motion.div>
         </motion.div>

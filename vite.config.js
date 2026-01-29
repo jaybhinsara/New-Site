@@ -10,6 +10,8 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: 'terser',
+    sourcemap: false,
+    chunkSizeWarningLimit: 500,
     terserOptions: {
       compress: {
         drop_console: true,

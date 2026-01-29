@@ -11,6 +11,15 @@ import { ThemeToggle } from './components/ThemeToggle';
 
 const SpeedInsights = lazy(() => import("@vercel/speed-insights/react").then(mod => ({ default: mod.SpeedInsights })))
 
+// Preload critical assets
+if (typeof document !== 'undefined') {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'script';
+  link.href = '/_vercel/insights/script.js';
+  document.head.appendChild(link);
+}
+
 export default function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
