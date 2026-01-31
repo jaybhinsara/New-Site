@@ -1,57 +1,51 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export function Sparkles() {
-  const [particles, setParticles] = useState([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    let isActive = true;
+
     const generateParticle = () => {
-      const id = Math.random();
+      if (!isActive) return;
+
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+
       const x = Math.random() * 100;
       const duration = 6 + Math.random() * 4;
       const delay = Math.random() * 2;
       const size = 2 + Math.random() * 4;
       const opacity = 0.3 + Math.random() * 0.5;
+      const drift = (Math.random() - 0.5) * 40;
 
-      const particle = { id, x, duration, delay, size, opacity };
-      setParticles((prev) => [...prev.slice(-20), particle]); // Limit to 20 particles max
+      sparkle.style.setProperty('--x', `${x}vw`);
+      sparkle.style.setProperty('--drift', `${drift}px`);
+      sparkle.style.setProperty('--size', `${size}px`);
+      sparkle.style.setProperty('--opacity', `${opacity}`);
+      sparkle.style.animationDuration = `${duration}s`;
+      sparkle.style.animationDelay = `${delay}s`;
 
-      setTimeout(() => {
-        setParticles((prev) => prev.filter((p) => p.id !== id));
-      }, (duration + delay) * 1000);
+      const handleEnd = () => {
+        sparkle.removeEventListener('animationend', handleEnd);
+        sparkle.remove();
+      };
+
+      sparkle.addEventListener('animationend', handleEnd);
+      container.appendChild(sparkle);
     };
 
-    const interval = setInterval(generateParticle, 500); // Reduced frequency from 300ms to 500ms
-    return () => clearInterval(interval);
+    const interval = setInterval(generateParticle, 500);
+
+    return () => {
+      isActive = false;
+      clearInterval(interval);
+      container.querySelectorAll('.sparkle').forEach((node) => node.remove());
+    };
   }, []);
 
-  return (
-    <div className="sparkles-container">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="sparkle"
-          initial={{ y: -10, opacity: 0, x: `${particle.x}vw` }}
-          animate={{
-            y: '100vh',
-            opacity: [0, particle.opacity, particle.opacity, 0],
-            x: `calc(${particle.x}vw + ${(Math.random() - 0.5) * 40}px)`,
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            ease: 'linear',
-          }}
-          style={{
-            width: particle.size,
-            height: particle.size,
-            borderRadius: '50%',
-            background: `radial-gradient(circle, rgba(242, 193, 79, 0.8), rgba(46, 212, 166, 0.4))`,
-            boxShadow: `0 0 ${particle.size * 2}px rgba(242, 193, 79, 0.6)`,
-            pointerEvents: 'none',
-          }}
-        />
-      ))}
-    </div>
-  );
+  return <div className="sparkles-container" ref={containerRef} aria-hidden="true" />;
 }
