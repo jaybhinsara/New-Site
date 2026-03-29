@@ -123,6 +123,96 @@ Your site is already optimized, but for even better performance:
 
 ---
 
+## 🔍 Monitoring with Vercel Speed Insights
+
+This project includes **Vercel Speed Insights**, which automatically tracks and monitors your site's performance metrics. Speed Insights is already integrated into the project via the `@vercel/speed-insights` package.
+
+### ✅ What's Already Set Up
+
+- `@vercel/speed-insights` package is installed
+- `<SpeedInsights />` component is already added to `src/App.jsx`
+- Tracking will automatically begin once deployed to Vercel
+
+### 🚀 Getting Started with Speed Insights
+
+#### Prerequisites
+
+- A **Vercel account**. [Sign up for free](https://vercel.com/signup) if needed
+- Your portfolio deployed on **Vercel** (as described in the deployment options above)
+- Vercel CLI (optional): Install with `npm install -g vercel`
+
+#### Enable Speed Insights in Vercel Dashboard
+
+1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
+2. Select your project
+3. Click the **Speed Insights** tab
+4. Click **Enable** to activate monitoring
+5. After your next deployment, Speed Insights will start tracking metrics
+
+> **Note:** Enabling Speed Insights will add new routes at `/_vercel/speed-insights/*` after your next deployment.
+
+#### What Speed Insights Tracks
+
+Speed Insights automatically collects performance metrics including:
+
+- **Web Vitals** (Core Web Vitals):
+  - Largest Contentful Paint (LCP)
+  - First Input Delay (FID) / Interaction to Next Paint (INP)
+  - Cumulative Layout Shift (CLS)
+
+- **Real User Monitoring (RUM)** data from actual visitors
+- **Historical performance trends**
+- **Geographic performance variations**
+
+#### Viewing Your Performance Data
+
+1. Go to your [Vercel Dashboard](https://vercel.com/dashboard)
+2. Select your project
+3. Click the **Speed Insights** tab
+4. Explore metrics dashboard:
+   - Real-time performance data
+   - Performance by page
+   - Performance by device/browser
+   - Performance by geography
+   - Historical trends
+
+> **Tip:** Data will start appearing after a few visitors have used your site. Initial data collection may take a few minutes to hours.
+
+#### Privacy & Data
+
+- Speed Insights respects user privacy and complies with GDPR, CCPA, and other privacy standards
+- No personal data is collected
+- URLs can be sanitized to remove sensitive query parameters
+- Learn more: [Speed Insights Privacy Policy](https://vercel.com/docs/speed-insights/privacy-policy)
+
+#### Customizing Speed Insights (React)
+
+The current implementation automatically handles tracking. If you need to customize behavior in the future:
+
+```jsx
+// src/App.jsx - Current simple implementation
+import { SpeedInsights } from "@vercel/speed-insights/react"
+
+export default function App() {
+  return (
+    <>
+      {/* Your app content */}
+      <SpeedInsights />
+    </>
+  );
+}
+```
+
+#### Learn More
+
+- [Speed Insights Documentation](https://vercel.com/docs/speed-insights)
+- [Vercel Speed Insights Package](https://vercel.com/docs/speed-insights/package)
+- [Understanding Web Vitals](https://web.dev/vitals/)
+- [Speed Insights Pricing & Limits](https://vercel.com/docs/speed-insights/limits-and-pricing)
+- [Troubleshooting Guide](https://vercel.com/docs/speed-insights/troubleshooting)
+
+---
+
 ## 🎯 Next Steps After Deployment
 
 1. **Test on multiple devices:**
